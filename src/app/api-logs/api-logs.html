@@ -1,0 +1,30 @@
+<h2 class="title">🚀 API Logs Dashboard</h2>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>API Name</th>
+      <th>Response Time</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let log of logs">
+      <td>{{ log.id }}</td>
+      <td>{{ log.apiName }}</td>
+      <td>{{ log.responseTime }} ms</td>
+      <td>
+        <span 
+          class="status-badge"
+          [ngClass]="{
+            'success': log.status === 'SUCCESS',
+            'failed': log.status === 'FAILED'
+          }">
+          {{ log.status }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
